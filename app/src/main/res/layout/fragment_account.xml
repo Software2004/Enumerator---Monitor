@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".fragments.AccountFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="1dp"
+            android:src="@drawable/round_person_24"
+            app:contentPadding="24dp"
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+            app:strokeColor="?colorPrimary"
+            app:strokeWidth="2dp"
+            app:tint="?colorPrimary" />
+
+
+        <TextView
+            android:id="@+id/tvProfileName"
+            style="@style/textHeading.VeryLarge"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Arjun Singh" />
+
+        <TextView
+            android:id="@+id/tvRole"
+            style="@style/textBody.Large"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="Enumerator"
+            android:textColor="@color/textColorSecondary" />
+
+
+        <!-- Settings list -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/btnPrivacyPolicy"
+                style="@style/SettingsButton"
+                android:background="@drawable/outlined_round_simple">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/full_round_bg"
+                    android:backgroundTint="@color/lightBack"
+                    android:padding="6dp"
+                    android:src="@drawable/outline_info_24"
+                    app:tint="?colorPrimary" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle.medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="Privacy Policy" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/round_keyboard_arrow_right_24"
+                    app:tint="@color/textColorSecondary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnReportIssue"
+                style="@style/SettingsButton"
+                android:background="@drawable/outlined_round_simple">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/full_round_bg"
+                    android:backgroundTint="@color/lightBack"
+                    android:padding="6dp"
+                    android:src="@drawable/round_outlined_flag_24"
+                    app:tint="?colorPrimary" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle.medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="Report an Issue" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/round_keyboard_arrow_right_24"
+                    app:tint="@color/textColorSecondary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnShareApp"
+                style="@style/SettingsButton"
+                android:background="@drawable/outlined_round_simple">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/full_round_bg"
+                    android:backgroundTint="@color/lightBack"
+                    android:padding="6dp"
+                    android:src="@drawable/baseline_share_24"
+                    app:tint="?colorPrimary" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle.medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="Share App" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/round_keyboard_arrow_right_24"
+                    app:tint="@color/textColorSecondary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnLogout"
+                style="@style/SettingsButton"
+                android:background="@drawable/outlined_round_simple">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/full_round_bg"
+                    android:backgroundTint="@color/light_yellow"
+                    android:padding="6dp"
+                    android:src="@drawable/round_logout_24"
+                    app:tint="@color/colorError" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle.medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="Logout" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/round_keyboard_arrow_right_24"
+                    app:tint="@color/textColorSecondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvVersion"
+            style="@style/textBody.VerySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:text="Version 1.0.0" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

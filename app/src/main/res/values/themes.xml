@@ -1,0 +1,94 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EnumeratorMonitor" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/blue</item>
+
+
+        <item name="colorSecondary">@color/textColorSecondary</item>
+        <item name="backgroundColor">@color/lightBack</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="colorOnBackground">@color/textColor</item>
+        <item name="android:windowBackground">?backgroundColor</item>
+        <item name="android:navigationBarColor">?backgroundColor</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="q">true</item>
+        <item name="colorSecondaryContainer">?colorPrimary</item>
+        <item name="colorOnSecondary">@color/blackLight</item>
+        <item name="colorPrimaryInverse">?colorOnBackground</item>
+
+        <item name="android:windowContentTransitions">true</item>
+
+        <item name="colorTertiary">@color/background_secondary</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorAccent">?colorPrimary</item>
+
+        <!--        Text Colors -->
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+
+        <!--    Status Bar Styling      -->
+        <item name="android:statusBarColor">?backgroundColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!--     Font Family !-->
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">?fontFamily</item>
+
+        <item name="android:ellipsize">end</item>
+        <item name="android:includeFontPadding">false</item>
+
+        <!--   Highlighter color when clicking a hint value     -->
+        <item name="colorControlActivated">?colorPrimaryInverse</item>
+
+
+    </style>
+
+    <style name="Theme.EnumeratorMonitor" parent="Base.Theme.EnumeratorMonitor" />
+
+    <style name="splashTheme" parent="Base.Theme.EnumeratorMonitor">
+        <item name="android:statusBarColor">?backgroundColor</item>
+        <item name="android:navigationBarColor">?backgroundColor</item>
+    </style>
+    <style name="Theme.MainActivity" parent="Base.Theme.EnumeratorMonitor">
+        <item name="android:navigationBarColor">?cardBackgroundColor</item>
+    </style>
+
+
+    <style name="texInLay" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="boxStrokeColor">?android:attr/colorPrimary</item>
+        <item name="hintTextColor">?android:attr/colorPrimary</item>
+    </style>
+
+    <style name="texInLayEt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="txtHeading" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="divider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="dividerThickness">2dp</item>
+        <item name="dividerColor">@color/black</item>
+    </style>
+
+    <style name="tvdetail" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>

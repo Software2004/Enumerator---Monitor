@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivBack"
+        style="@style/backBtn"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        style="@style/textHeading"
+        android:layout_marginStart="12dp"
+        android:text="Add New Survey"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"
+        app:layout_constraintStart_toEndOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                style="@style/textHeading.NormalStyle"
+                android:text="House No." />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilHouseNo"
+                style="@style/textInputLayout.NoHint"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etHouseNo"
+                    style="@style/editTextInputLayout"
+                    android:hint="Enter House No."
+                    android:inputType="number"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                style="@style/textHeading.NormalStyle"
+                android:layout_marginTop="8dp"
+                android:text="Respondant Name" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRespondent"
+                style="@style/textInputLayout.NoHint"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRespondent"
+                    style="@style/editTextInputLayout"
+                    android:hint="Enter Respondent Name"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textHeading.NormalStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Family Members" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="House Type" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFamilyMembers"
+                    style="@style/textInputLayout.NoHint"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFamilyMembers"
+                        style="@style/editTextInputLayout"
+                        android:hint="Enter Family Member"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <Spinner
+                    android:id="@+id/actHouseType"
+                    style="@style/outlined_spinner"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:entries="@array/reply_entries" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/textHeading.NormalStyle"
+                android:layout_marginTop="4dp"
+                android:text="Cattle Ownership" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbBuffalo"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:text="Buffalo" />
+
+                <CheckBox
+                    android:id="@+id/cbCow"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Cow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbGoat"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:text="Goat" />
+
+                <CheckBox
+                    android:id="@+id/cbSheep"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Sheep" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/textHeading.NormalStyle"
+                android:layout_marginTop="20dp"
+                android:text="Infant Child" />
+
+            <RadioGroup
+                android:id="@+id/rgInfant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rbInfantYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outlined_12dp_round_with_states_effect"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:text="Yes" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/rbInfantNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outlined_12dp_round_with_states_effect"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="No" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textHeading.NormalStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Family Type" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="No. of Chits" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/actFamilyType"
+                    style="@style/outlined_spinner"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilChits"
+                    style="@style/textInputLayout.NoHint"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etChits"
+                        style="@style/editTextInputLayout"
+                        android:hint="Enter chits"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/textHeading.NormalStyle"
+                android:layout_marginTop="8dp"
+                android:text="Phone No." />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPhone"
+                style="@style/textInputLayout.NoHint"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone"
+                    style="@style/editTextInputLayout"
+                    android:hint="Enter Phone No."
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnClear"
+                    style="@style/btn_lwm.outlined"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Clear Entries" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    style="@style/btn_lwm_enable_disable"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Submit" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
