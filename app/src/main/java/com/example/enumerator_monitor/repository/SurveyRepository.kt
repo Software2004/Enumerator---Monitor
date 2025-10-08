@@ -23,6 +23,10 @@ class SurveyRepository @Inject constructor(
         surveyEntryDao.search("%$queryText%")
 
     suspend fun getById(id: Long): SurveyEntry? = surveyEntryDao.getById(id)
+
+    suspend fun updateEntry(entry: SurveyEntry) = surveyEntryDao.update(entry)
+
+    suspend fun deleteEntry(entry: SurveyEntry) = surveyEntryDao.delete(entry)
 }
 
 

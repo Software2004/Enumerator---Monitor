@@ -3,8 +3,10 @@ package com.example.enumerator_monitor.activities
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.app.AlertDialog
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +30,14 @@ class AddEntryActivity : AppCompatActivity() {
         binding = ActivityAddEntryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Check if we're in edit mode
+        val entryId = intent.getLongExtra(EXTRA_ENTRY_ID, -1L)
+        val isEditMode = intent.getBooleanExtra(EXTRA_IS_EDIT_MODE, false)
+        
+        if (isEditMode && entryId != -1L) {
+            viewModel.loadEntryForEdit(entryId)
+        }
+
         // spinners
         val houseTypes = arrayOf("Owned", "On Rent", "Rent Free", "Other")
         val familyTypes = arrayOf("A", "B", "C", "D", "A-X", "B-X", "X", "C-X", "Other")
@@ -37,17 +47,71 @@ class AddEntryActivity : AppCompatActivity() {
             actFamilyType.adapter = ArrayAdapter(this@AddEntryActivity, simpleItem, familyTypes)
         }
 
-        binding.ivBack.setOnClickListener { finish() }
+        onBackPressedDispatcher.addCallback(this) {
+            exitDialog()
+        }
 
-        // autofill next house no
+
+        binding.ivBack.setOnClickListener {
+            exitDialog()
+        }
+
+        // Handle UI state changes
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                val desired = state.nextHouseNo.toString()
-                if (binding.etHouseNo.text?.toString() != desired) binding.etHouseNo.setText(desired)
+                // Update title based on mode
+                if (state.isEditMode) {
+                    binding.textHeading.text = "Edit Survey Entry"
+                    binding.btnSubmit.text = "Update Entry"
+                } else {
+                    binding.textHeading.text = "Add New Survey"
+                    binding.btnSubmit.text = "Submit"
+                }
+                
+                // Pre-fill form if in edit mode
+                if (state.isEditMode && state.editingEntry != null) {
+                    val entry = state.editingEntry!!
+                    binding.etHouseNo.setText(entry.houseNo.toString())
+                    binding.etRespondent.setText(entry.respondentName)
+                    binding.etFamilyMembers.setText(entry.familyMembers.toString())
+                    binding.etChits.setText(entry.chitsCount.toString())
+                    binding.etPhone.setText(entry.phoneNumber)
+                    
+                    // Set spinners
+                    val houseTypeIndex = houseTypes.indexOf(entry.houseType)
+                    if (houseTypeIndex >= 0) binding.actHouseType.setSelection(houseTypeIndex)
+                    
+                    val familyTypeIndex = familyTypes.indexOf(entry.familyType)
+                    if (familyTypeIndex >= 0) binding.actFamilyType.setSelection(familyTypeIndex)
+                    
+                    // Set checkboxes
+                    binding.cbBuffalo.isChecked = entry.ownsBuffalo
+                    binding.cbCow.isChecked = entry.ownsCow
+                    binding.cbGoat.isChecked = entry.ownsGoat
+                    binding.cbSheep.isChecked = entry.ownsSheep
+                    
+                    // Set radio buttons
+                    if (entry.hasInfantChild) {
+                        binding.rbInfantYes.isChecked = true
+                    } else {
+                        binding.rbInfantNo.isChecked = true
+                    }
+                }
+                else if (!state.isEditMode) {
+                    // Auto-fill next house no for new entries
+                    val desired = state.nextHouseNo.toString()
+                    if (binding.etHouseNo.text?.toString() != desired) binding.etHouseNo.setText(desired)
+                }
+                
                 state.errorMessage?.let { Toast.makeText(this@AddEntryActivity, it, Toast.LENGTH_SHORT).show() }
                 if (state.saveSuccess == true) {
-                    Toast.makeText(this@AddEntryActivity, "Data saved successfully", Toast.LENGTH_SHORT).show()
-                    clearInputs()
+                    val message = if (state.isEditMode) "Entry updated successfully" else "Data saved successfully"
+                    Toast.makeText(this@AddEntryActivity, message, Toast.LENGTH_SHORT).show()
+                    if (!state.isEditMode) {
+                        clearInputs()
+                    } else {
+                        finish()
+                    }
                 }
             }
         }
@@ -96,6 +160,17 @@ class AddEntryActivity : AppCompatActivity() {
         }
     }
 
+    private fun exitDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Confirm Exit")
+            .setMessage("Are you sure you want to go back? Any unsaved changes will be lost.")
+            .setPositiveButton("Yes") { _, _ ->
+                finish()
+            }
+            .setNegativeButton("No", null)
+            .show()
+    }
+
     private fun clearInputs() {
         binding.apply {
             etHouseNo.setText("")
@@ -110,6 +185,13 @@ class AddEntryActivity : AppCompatActivity() {
             actFamilyType.setSelection(0)
             etChits.setText("")
             etPhone.setText("")
+            val desired = viewModel.uiState.value.nextHouseNo.toString()
+            if (binding.etHouseNo.text?.toString() != desired) binding.etHouseNo.setText(desired)
         }
+    }
+
+    companion object {
+        const val EXTRA_ENTRY_ID = "extra_entry_id"
+        const val EXTRA_IS_EDIT_MODE = "extra_is_edit_mode"
     }
 }

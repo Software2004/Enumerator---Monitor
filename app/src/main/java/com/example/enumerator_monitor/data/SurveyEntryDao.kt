@@ -4,6 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
+import androidx.room.Delete
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -22,6 +24,12 @@ interface SurveyEntryDao {
 
     @Query("SELECT * FROM survey_entries WHERE id = :id LIMIT 1")
     suspend fun getById(id: Long): SurveyEntry?
+
+    @Update
+    suspend fun update(entry: SurveyEntry)
+
+    @Delete
+    suspend fun delete(entry: SurveyEntry)
 }
 
 

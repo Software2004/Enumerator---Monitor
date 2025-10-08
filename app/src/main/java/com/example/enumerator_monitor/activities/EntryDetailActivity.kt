@@ -3,6 +3,7 @@ package com.example.enumerator_monitor.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.enumerator_monitor.databinding.ActivityEntryDetailBinding
@@ -69,8 +70,32 @@ class EntryDetailActivity : AppCompatActivity() {
                     }
                     startActivity(Intent.createChooser(intent, "Share entry"))
                 }
+
+                binding.btnEdit.setOnClickListener {
+                    val intent = Intent(this@EntryDetailActivity, AddEntryActivity::class.java).apply {
+                        putExtra(AddEntryActivity.EXTRA_ENTRY_ID, entry.id)
+                        putExtra(AddEntryActivity.EXTRA_IS_EDIT_MODE, true)
+                    }
+                    startActivity(intent)
+                }
+
+                binding.btnDelete.setOnClickListener {
+                    showDeleteConfirmationDialog(entry)
+                }
             }
         }
+    }
+
+    private fun showDeleteConfirmationDialog(entry: com.example.enumerator_monitor.data.SurveyEntry) {
+        AlertDialog.Builder(this)
+            .setTitle("Delete Entry")
+            .setMessage("Are you sure you want to delete this entry for ${entry.respondentName}? This action cannot be undone.")
+            .setPositiveButton("Delete") { _, _ ->
+                viewModel.deleteEntry(entry)
+                finish()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     companion object {

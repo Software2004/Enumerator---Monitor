@@ -65,9 +65,9 @@ class GroupedEntriesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private class RowVH private constructor(private val binding: ItemRecentEntryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item.Row, onItemClick: (SurveyEntry) -> Unit, onShareClick: (SurveyEntry) -> Unit) {
             val entry = item.entry
-            binding.tvPersonName.text = entry.respondentName
+            binding.tvPersonName.text = "House # ${entry.houseNo}"
             val time = SimpleDateFormat("hh:mm a", Locale.getDefault()).format(Date(entry.createdAt))
-            binding.tvMeta.text = "House # ${entry.houseNo}     $time"
+            binding.tvMeta.text = "${entry.respondentName}     $time"
 
             binding.root.setOnClickListener { onItemClick(entry) }
             binding.btnShare.setOnClickListener { onShareClick(entry) }

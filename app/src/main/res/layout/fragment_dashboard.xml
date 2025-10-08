@@ -40,7 +40,7 @@
             style="@style/textHeading.medium"
             android:layout_width="0dp"
             android:layout_marginTop="4dp"
-            android:text="Ahmad Z."
+            android:text="Hammad Hanif"
             app:layout_constraintEnd_toStartOf="@id/btnSettings"
             app:layout_constraintStart_toStartOf="@id/tvWelcome"
             app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
@@ -53,6 +53,7 @@
             android:layout_marginTop="0dp"
             android:contentDescription="settings"
             android:src="@drawable/baseline_more_vert_24"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/imgAvatar" />
@@ -189,7 +190,7 @@
         <!-- Recent Entries header -->
         <TextView
             android:id="@+id/tvRecentEntries"
-            style="@style/textHeading"
+            style="@style/textHeading.NormalStyle"
             android:layout_marginTop="24dp"
             android:text="Recent Entries"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,11 +210,45 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:overScrollMode="never"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRecentEntries"
             tools:itemCount="3"
             tools:listitem="@layout/item_recent_entry" />
+
+        <LinearLayout
+            android:id="@+id/layResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvRecentEntries">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="12dp"
+                android:src="@drawable/folder"
+                app:tint="?colorSecondary" />
+
+            <TextView
+                style="@style/textHeading.medium"
+                android:layout_marginTop="20dp"
+                android:text="No Entries Yet" />
+
+            <TextView
+                style="@style/textBody"
+                android:layout_marginTop="4dp"
+                android:text="You haven't added any entries yet. Press the '+' button to add a new entry."
+                android:textAlignment="center" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

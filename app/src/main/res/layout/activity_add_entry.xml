@@ -13,6 +13,7 @@
 
 
     <TextView
+        android:id="@+id/textHeading"
         style="@style/textHeading"
         android:layout_marginStart="12dp"
         android:text="Add New Survey"
@@ -72,6 +73,63 @@
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/textHeading.NormalStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Family Type" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <TextView
+                    style="@style/textHeading.NormalStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="No. of Chits" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/actFamilyType"
+                    style="@style/outlined_spinner"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilChits"
+                    style="@style/textInputLayout.NoHint"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etChits"
+                        style="@style/editTextInputLayout"
+                        android:hint="Enter chits"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +172,7 @@
                         android:id="@+id/etFamilyMembers"
                         style="@style/editTextInputLayout"
                         android:hint="Enter Family Member"
-                        android:inputType="number" />
+                        android:inputType="phone" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Space
@@ -194,7 +252,7 @@
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/rbInfantYes"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
                     android:background="@drawable/outlined_12dp_round_with_states_effect"
                     android:layout_weight="1"
                     android:layout_marginEnd="12dp"
@@ -203,72 +261,17 @@
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/rbInfantNo"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
                     android:background="@drawable/outlined_12dp_round_with_states_effect"
                     android:layout_weight="1"
                     android:checked="true"
                     android:text="No" />
             </RadioGroup>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/textHeading.NormalStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="Family Type" />
-
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="1dp" />
-
-                <TextView
-                    style="@style/textHeading.NormalStyle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="No. of Chits" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/actFamilyType"
-                    style="@style/outlined_spinner"
-                    android:layout_width="0dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1" />
-
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="1dp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilChits"
-                    style="@style/textInputLayout.NoHint"
-                    android:layout_width="0dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="1">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etChits"
-                        style="@style/editTextInputLayout"
-                        android:hint="Enter chits"
-                        android:inputType="number" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
 
             <TextView
                 style="@style/textHeading.NormalStyle"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:text="Phone No." />
 
             <com.google.android.material.textfield.TextInputLayout

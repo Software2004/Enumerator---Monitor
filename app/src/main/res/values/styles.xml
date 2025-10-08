@@ -223,7 +223,7 @@
 
     <style name="checkBoxStyle">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">58dp</item>
         <item name="android:paddingStart">5dp</item>
         <item name="android:background">@drawable/outlined_12dp_round_with_states_effect</item>
     </style>
@@ -329,7 +329,7 @@
 
     <style name="outlined_spinner">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">54dp</item>
+        <item name="android:layout_height">58dp</item>
         <item name="android:background">@drawable/custom_spinner_background</item>
         <item name="android:paddingHorizontal">15dp</item>
         <item name="android:popupBackground">@drawable/custom_spinner_background_with_padding</item>

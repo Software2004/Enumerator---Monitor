@@ -14,7 +14,9 @@ data class AddEntryUiState(
     val nextHouseNo: Int = 1,
     val isSaving: Boolean = false,
     val saveSuccess: Boolean? = null,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
+    val isEditMode: Boolean = false,
+    val editingEntry: SurveyEntry? = null
 )
 
 @HiltViewModel
@@ -26,7 +28,21 @@ class AddEntryViewModel @Inject constructor(
     val uiState: StateFlow<AddEntryUiState> = _uiState
 
     init {
-        viewModelScope.launch { _uiState.value = _uiState.value.copy(nextHouseNo = repository.getNextHouseNo()) }
+        viewModelScope.launch { 
+            _uiState.value = _uiState.value.copy(nextHouseNo = repository.getNextHouseNo()) 
+        }
+    }
+
+    fun loadEntryForEdit(entryId: Long) {
+        viewModelScope.launch {
+            val entry = repository.getById(entryId)
+            if (entry != null) {
+                _uiState.value = _uiState.value.copy(
+                    isEditMode = true,
+                    editingEntry = entry
+                )
+            }
+        }
     }
 
     fun save(
@@ -54,7 +70,25 @@ class AddEntryViewModel @Inject constructor(
             if (phoneNumber.isNullOrBlank()) return@launch emitError("Phone no is required")
 
             _uiState.value = _uiState.value.copy(isSaving = true, saveSuccess = null, errorMessage = null)
-            repository.addEntry(
+            
+            val entry = if (_uiState.value.isEditMode && _uiState.value.editingEntry != null) {
+                // Update existing entry
+                _uiState.value.editingEntry!!.copy(
+                    houseNo = houseNo,
+                    respondentName = respondentName,
+                    familyMembers = familyMembers,
+                    houseType = houseType,
+                    ownsBuffalo = ownsBuffalo,
+                    ownsCow = ownsCow,
+                    ownsGoat = ownsGoat,
+                    ownsSheep = ownsSheep,
+                    hasInfantChild = hasInfantChild,
+                    familyType = familyType,
+                    chitsCount = chitsCount,
+                    phoneNumber = phoneNumber
+                )
+            } else {
+                // Create new entry
                 SurveyEntry(
                     houseNo = houseNo,
                     respondentName = respondentName,
@@ -69,7 +103,14 @@ class AddEntryViewModel @Inject constructor(
                     chitsCount = chitsCount,
                     phoneNumber = phoneNumber
                 )
-            )
+            }
+            
+            if (_uiState.value.isEditMode) {
+                repository.updateEntry(entry)
+            } else {
+                repository.addEntry(entry)
+            }
+            
             _uiState.value = _uiState.value.copy(isSaving = false, saveSuccess = true, nextHouseNo = repository.getNextHouseNo())
         }
     }

@@ -23,6 +23,12 @@ class EntryDetailViewModel @Inject constructor(
             _entry.value = repository.getById(id)
         }
     }
+
+    fun deleteEntry(entry: SurveyEntry) {
+        viewModelScope.launch {
+            repository.deleteEntry(entry)
+        }
+    }
 }
 
 

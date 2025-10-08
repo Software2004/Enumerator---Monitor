@@ -72,6 +72,14 @@ class DashboardFragment : Fragment() {
 
                 // Show only today's entries in the list
                 adapter.submit(listOf(DayGroup("Today", todayEntries)))
+
+                if (todayEntries.isEmpty()) {
+                    binding.layResult.visibility = View.VISIBLE
+                    binding.rvRecentEntries.visibility = View.GONE
+                } else {
+                    binding.layResult.visibility = View.GONE
+                    binding.rvRecentEntries.visibility = View.VISIBLE
+                }
             }
         }
         binding.btnViewAll.setOnClickListener {
