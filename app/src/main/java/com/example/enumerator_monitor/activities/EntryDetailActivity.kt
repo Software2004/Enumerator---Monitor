@@ -48,6 +48,12 @@ class EntryDetailActivity : AppCompatActivity() {
                 binding.tvFamilyType.text = entry.familyType
                 binding.tvChits.text = entry.chitsCount.toString()
                 binding.tvPhone.text = entry.phoneNumber
+                binding.tvAC.text = if (entry.ownsAC) "Yes" else "No"
+                binding.tvRefrigerator.text = if (entry.ownsRefrigerator) "Yes" else "No"
+                binding.tvMotorcycle.text = if (entry.ownsMotorcycle) "Yes" else "No"
+                binding.tvScooter.text = if (entry.ownsScooter) "Yes" else "No"
+                binding.tvCar.text = if (entry.ownsCar) "Yes" else "No"
+                binding.tvTractor.text = if (entry.ownsTractor) "Yes" else "No"
 
                 binding.btnShare.setOnClickListener {
                     val text = buildString {
@@ -62,7 +68,13 @@ class EntryDetailActivity : AppCompatActivity() {
                         appendLine("Infant Child: ${if (entry.hasInfantChild) "Yes" else "No"}")
                         appendLine("Family Type: ${entry.familyType}")
                         appendLine("No. of Chits: ${entry.chitsCount}")
-                        append("Phone No.: ${entry.phoneNumber}")
+                        appendLine("Phone No.: ${entry.phoneNumber}")
+                        appendLine("AC: ${if (entry.ownsAC) "Yes" else "No"}")
+                        appendLine("Refrigerator: ${if (entry.ownsRefrigerator) "Yes" else "No"}")
+                        appendLine("Motorcycle: ${if (entry.ownsMotorcycle) "Yes" else "No"}")
+                        appendLine("Scooter: ${if (entry.ownsScooter) "Yes" else "No"}")
+                        appendLine("Car: ${if (entry.ownsCar) "Yes" else "No"}")
+                        append("Tractor: ${if (entry.ownsTractor) "Yes" else "No"}")
                     }
                     val intent = Intent(Intent.ACTION_SEND).apply {
                         type = "text/plain"

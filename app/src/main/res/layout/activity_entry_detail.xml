@@ -260,6 +260,114 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                style="@style/roundMaterialCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/textHeading"
+                        android:text="Assets Ownership" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBody"
+                            android:text="AC: " />
+
+                        <TextView
+                            android:id="@+id/tvAC"
+                            style="@style/textBody" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBody"
+                            android:text="Refrigerator: " />
+
+                        <TextView
+                            android:id="@+id/tvRefrigerator"
+                            style="@style/textBody" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBody"
+                            android:text="Motorcycle: " />
+
+                        <TextView
+                            android:id="@+id/tvMotorcycle"
+                            style="@style/textBody" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBody"
+                            android:text="Scooter: " />
+
+                        <TextView
+                            android:id="@+id/tvScooter"
+                            style="@style/textBody" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBody"
+                            android:text="Car: " />
+
+                        <TextView
+                            android:id="@+id/tvCar"
+                            style="@style/textBody" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/textBody"
+                            android:text="Tractor: " />
+
+                        <TextView
+                            android:id="@+id/tvTractor"
+                            style="@style/textBody" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </ScrollView>
 

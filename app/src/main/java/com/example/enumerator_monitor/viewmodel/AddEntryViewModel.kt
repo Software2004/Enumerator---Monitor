@@ -57,7 +57,13 @@ class AddEntryViewModel @Inject constructor(
         hasInfantChild: Boolean,
         familyType: String?,
         chitsCount: Int?,
-        phoneNumber: String?
+        phoneNumber: String?,
+        ownsAC: Boolean = false,
+        ownsRefrigerator: Boolean = false,
+        ownsMotorcycle: Boolean = false,
+        ownsScooter: Boolean = false,
+        ownsCar: Boolean = false,
+        ownsTractor: Boolean = false
     ) {
         viewModelScope.launch {
             // basic validation
@@ -72,8 +78,11 @@ class AddEntryViewModel @Inject constructor(
             _uiState.value = _uiState.value.copy(isSaving = true, saveSuccess = null, errorMessage = null)
             
             val entry = if (_uiState.value.isEditMode && _uiState.value.editingEntry != null) {
-                // Update existing entry
-                _uiState.value.editingEntry!!.copy(
+                // Update existing entry - preserve id and createdAt
+                val existingEntry = _uiState.value.editingEntry!!
+                SurveyEntry(
+                    id = existingEntry.id,
+                    createdAt = existingEntry.createdAt,
                     houseNo = houseNo,
                     respondentName = respondentName,
                     familyMembers = familyMembers,
@@ -85,7 +94,13 @@ class AddEntryViewModel @Inject constructor(
                     hasInfantChild = hasInfantChild,
                     familyType = familyType,
                     chitsCount = chitsCount,
-                    phoneNumber = phoneNumber
+                    phoneNumber = phoneNumber,
+                    ownsAC = ownsAC,
+                    ownsRefrigerator = ownsRefrigerator,
+                    ownsMotorcycle = ownsMotorcycle,
+                    ownsScooter = ownsScooter,
+                    ownsCar = ownsCar,
+                    ownsTractor = ownsTractor
                 )
             } else {
                 // Create new entry
@@ -101,7 +116,13 @@ class AddEntryViewModel @Inject constructor(
                     hasInfantChild = hasInfantChild,
                     familyType = familyType,
                     chitsCount = chitsCount,
-                    phoneNumber = phoneNumber
+                    phoneNumber = phoneNumber,
+                    ownsAC = ownsAC,
+                    ownsRefrigerator = ownsRefrigerator,
+                    ownsMotorcycle = ownsMotorcycle,
+                    ownsScooter = ownsScooter,
+                    ownsCar = ownsCar,
+                    ownsTractor = ownsTractor
                 )
             }
             

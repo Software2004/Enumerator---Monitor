@@ -89,6 +89,12 @@ class AddEntryActivity : AppCompatActivity() {
                     binding.cbCow.isChecked = entry.ownsCow
                     binding.cbGoat.isChecked = entry.ownsGoat
                     binding.cbSheep.isChecked = entry.ownsSheep
+                    binding.cbAC.isChecked = entry.ownsAC
+                    binding.cbRefrigerator.isChecked = entry.ownsRefrigerator
+                    binding.cbMotorcycle.isChecked = entry.ownsMotorcycle
+                    binding.cbScooter.isChecked = entry.ownsScooter
+                    binding.cbCar.isChecked = entry.ownsCar
+                    binding.cbTractor.isChecked = entry.ownsTractor
                     
                     // Set radio buttons
                     if (entry.hasInfantChild) {
@@ -155,7 +161,13 @@ class AddEntryActivity : AppCompatActivity() {
                 hasInfantChild = binding.rbInfantYes.isChecked,
                 familyType = selectedFamilyType,
                 chitsCount = binding.etChits.text?.toString()?.toIntOrNull(),
-                phoneNumber = binding.etPhone.text?.toString()?.trim()
+                phoneNumber = binding.etPhone.text?.toString()?.trim(),
+                ownsAC = binding.cbAC.isChecked,
+                ownsRefrigerator = binding.cbRefrigerator.isChecked,
+                ownsMotorcycle = binding.cbMotorcycle.isChecked,
+                ownsScooter = binding.cbScooter.isChecked,
+                ownsCar = binding.cbCar.isChecked,
+                ownsTractor = binding.cbTractor.isChecked
             )
         }
     }
@@ -180,6 +192,12 @@ class AddEntryActivity : AppCompatActivity() {
             cbCow.isChecked = false
             cbGoat.isChecked = false
             cbSheep.isChecked = false
+            cbAC.isChecked = false
+            cbRefrigerator.isChecked = false
+            cbMotorcycle.isChecked = false
+            cbScooter.isChecked = false
+            cbCar.isChecked = false
+            cbTractor.isChecked = false
             rgInfant.check(rbInfantNo.id)
             actHouseType.setSelection(0)
             actFamilyType.setSelection(0)

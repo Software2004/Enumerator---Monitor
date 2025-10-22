@@ -240,6 +240,77 @@
             <TextView
                 style="@style/textHeading.NormalStyle"
                 android:layout_marginTop="20dp"
+                android:text="Assets Ownership" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbAC"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:text="AC" />
+
+                <CheckBox
+                    android:id="@+id/cbRefrigerator"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Refrigerator" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbMotorcycle"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:text="Motorcycle" />
+
+                <CheckBox
+                    android:id="@+id/cbScooter"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Scooter" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbCar"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:text="Car" />
+
+                <CheckBox
+                    android:id="@+id/cbTractor"
+                    style="@style/checkBoxStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="Tractor" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/textHeading.NormalStyle"
+                android:layout_marginTop="20dp"
                 android:text="Infant Child" />
 
             <RadioGroup

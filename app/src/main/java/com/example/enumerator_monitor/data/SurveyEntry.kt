@@ -18,7 +18,13 @@ data class SurveyEntry(
     val hasInfantChild: Boolean,
     val familyType: String,
     val chitsCount: Int,
-    val phoneNumber: String
+    val phoneNumber: String,
+    val ownsAC: Boolean = false,
+    val ownsRefrigerator: Boolean = false,
+    val ownsMotorcycle: Boolean = false,
+    val ownsScooter: Boolean = false,
+    val ownsCar: Boolean = false,
+    val ownsTractor: Boolean = false
 )
 
 
